@@ -3,7 +3,7 @@ include('includes/db_config.php');
 include('includes/header.php');
 include('includes/functions.php');
 
-$entity = $_GET['entity'] ?? 'default';
+$entity = $_GET['entity'] ?? 'doctor'; // Default to 'doctor' if no entity is specified
 $operation = $_GET['operation'] ?? 'view';
 
 switch ($operation) {
