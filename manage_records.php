@@ -3,10 +3,30 @@ include('includes/db_config.php');
 include('includes/header.php');
 include('includes/functions.php');
 
-$entity = $_GET['entity'] ?? 'doctor'; // Default to 'doctor' if no entity is specified
+$entity = $_GET['entity'] ?? 'default';
 $operation = $_GET['operation'] ?? 'view';
 
 switch ($operation) {
+    case 'insert':
+            // Perform the insert operation
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Extract data from $_POST and insert into the database
+
+                echo $entity;
+
+                $insertSuccess = createRecord($entity, $_POST);
+                if ($insertSuccess) {
+                    // Redirect to the list page with a success message
+                    echo "Added Successfully!";
+                    header("Location: list_records.php?entity=$entity");
+                } else {
+                    // Handle the error
+                    echo "Some Error Occured!";
+                }
+            }
+            exit;
+            break;
+
     case 'view':
         $records = getAllRecords($entity);
         $headers = generateTableHeaders($entity);
@@ -16,7 +36,8 @@ switch ($operation) {
 
     case 'add':
         // Include a file that shows a form to add a new record
-        include('add_record_form.php');
+        header("Location: add_record_form.php?entity=$entity");
+        exit;
         break;
 
     case 'edit':

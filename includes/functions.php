@@ -44,19 +44,19 @@ function createRecord($table, $data) {
     global $conn;
     
     switch ($table) {
-        case 'Doctor':
+        case 'doctor':
             $stmt = $conn->prepare("INSERT INTO Doctor (FirstName, LastName, Specialization, ContactNumber, Email) VALUES (?, ?, ?, ?, ?)");
             $stmt->bind_param("sssss", $data['FirstName'], $data['LastName'], $data['Specialization'], $data['ContactNumber'], $data['Email']);
             break;
-        case 'Patient':
+        case 'patient':
             $stmt = $conn->prepare("INSERT INTO Patient (FirstName, LastName, DateOfBirth, Gender, ContactNumber, Email, Address) VALUES (?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("sssssss", $data['FirstName'], $data['LastName'], $data['DateOfBirth'], $data['Gender'], $data['ContactNumber'], $data['Email'], $data['Address']);
             break;
-        case 'Appointment':
+        case 'appointment':
             $stmt = $conn->prepare("INSERT INTO Appointment (PatientID, DoctorID, AppointmentDate, AppointmentTime, Status) VALUES (?, ?, ?, ?, ?)");
             $stmt->bind_param("iisss", $data['PatientID'], $data['DoctorID'], $data['AppointmentDate'], $data['AppointmentTime'], $data['Status']);
             break;
-        case 'Billing':
+        case 'billing':
             $stmt = $conn->prepare("INSERT INTO Billing (PatientID, Amount) VALUES (?, ?)");
             $stmt->bind_param("id", $data['PatientID'], $data['Amount']);
             break;

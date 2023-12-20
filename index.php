@@ -1,56 +1,87 @@
-<?php 
-include('includes/db_config.php'); 
-include('includes/functions.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Healthcare Management System</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css"> <!-- Ensure this path is correct -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Healthcare Management System</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.shutterstock.com/shutterstock/photos/582465904/display_1500/stock-vector-medicine-concept-with-doctor-and-patient-in-flat-style-isolated-on-white-background-practitioner-582465904.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .welcome-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 350px;
+        }
+
+        .card-body {
+            margin: 0;
+        }
+
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
 </head>
 <body>
-    <?php include('includes/header.php'); // This will display the header content ?>
-
-    <main class="container mt-4">
-        <h1 class="text-center mb-4">Welcome to the Healthcare Management System</h1>
-        <p class="lead text-center">This system provides comprehensive management of medical records, appointments, billing, and more.</p>
-        
-        <!-- Quick navigation links -->
-        <section>
-            <h2 class="text-center mb-3">Quick Access</h2>
-            <div class="list-group text-center">
-                <a href="list_records.php?entity=doctor" class="list-group-item list-group-item-action">View Doctors</a>
-                <a href="list_records.php?entity=patient" class="list-group-item list-group-item-action">View Patients</a>
-                <a href="list_records.php?entity=appointment" class="list-group-item list-group-item-action">View Appointments</a>
-                <a href="list_records.php?entity=billing" class="list-group-item list-group-item-action">View Billing Records</a>
-                <a href="list_records.php?entity=prescription" class="list-group-item list-group-item-action">View Prescriptions</a>
-                <a href="list_records.php?entity=medicalRecord" class="list-group-item list-group-item-action">View Medical Records</a>
-                <a href="list_records.php?entity=symptom" class="list-group-item list-group-item-action">View Symptoms</a>
-                <a href="list_records.php?entity=room" class="list-group-item list-group-item-action">View Rooms</a>
-                <a href="list_records.php?entity=pharmacist" class="list-group-item list-group-item-action">View Pharmacists</a>
-                <a href="list_records.php?entity=administrator" class="list-group-item list-group-item-action">View Administrators</a>
-                <a href="list_records.php?entity=receptionist" class="list-group-item list-group-item-action">View Receptionists</a>
+    <div class="welcome-container">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Welcome to Healthcare Management System</h2>
+                <p class="card-text">A comprehensive solution for managing medical records, appointments, and billing.</p>
+                <div class="buttons">
+                    <button onclick="location.href='login.php'" class="btn">Login</button>
+                    <button onclick="location.href='register.php'" class="btn btn-primary">Register</button>
+                </div>
             </div>
-        </section>
-
-        <!-- Additional content sections -->
-        <section class="my-5">
-            <h2 class="text-center">About Our System</h2>
-            <p class="text-center">Learn more about how our system can help in managing healthcare facilities efficiently.</p>
-        </section>
-
-        <section class="mb-5">
-            <h2 class="text-center">Contact Information</h2>
-            <p class="text-center">Have questions? Contact our support team.</p>
-        </section>
-    </main>
-
-    <?php include('includes/footer.php'); ?>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.11/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </div>
+    </div>
 </body>
 </html>

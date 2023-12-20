@@ -66,8 +66,10 @@ $records = getAllRecords($entity);
                             <?php foreach ($record as $value): ?>
                                 <td><?php echo htmlspecialchars($value); ?></td>
                             <?php endforeach; ?>
+                            echo $record['id'];
                             <td>
-                                <a href="edit_record.php?entity=<?php echo $entity; ?>&id=<?php echo $record['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="edit_record_form.php?entity=<?php echo $entity; ?>&id=<?php echo $record['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
+                        
                                 <a href="delete_record.php?entity=<?php echo $entity; ?>&id=<?php echo $record['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>

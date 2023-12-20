@@ -1,8 +1,8 @@
 <?php
 // db/config.php: Database connection configuration
-$dbHost = 'elvis.rowan.edu';
-$dbUsername = 'nallau92';
-$dbPassword = '1PurpLe3truCk!';
+$dbHost = '127.0.0.1';
+$dbUsername = 'root';
+$dbPassword = 'Pra123890';
 $dbName = 'nallau92';
 
 $conn = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);

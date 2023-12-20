@@ -3,6 +3,7 @@ $entity = $_GET['entity'] ?? 'default';
 include('includes/db_config.php');
 include('includes/header.php');
 include('includes/functions.php');
+//nallau92
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@ include('includes/functions.php');
 <body>
     <div class="container mt-5">
         <h2 class="mb-4">Add New <?= ucfirst($entity) ?></h2>
-        <form action="manage_records.php?entity=<?= $entity ?>&operation=add" method="post">
+        <form action="manage_records.php?entity=<?= $entity ?>&operation=insert" method="post">
             <div class="form-row">
                 <?php if ($entity == 'doctor'): ?>
                     <div class="form-group col-md-6">

@@ -2,6 +2,9 @@
 include('includes/db_config.php');
 include('includes/header.php');
 include('includes/functions.php');
+ini_set('display_errors', 0);
+error_reporting(0);
+
 
 $entity = $_GET['entity'] ?? 'doctor'; // Default to 'doctor' if no entity is specified
 
@@ -52,8 +55,11 @@ $headers = generateTableHeaders($entity);
 </head>
 <body>
     <main class="container my-4">
+        
         <h2 class="text-center">List of <?= ucfirst($entity) ?></h2>
         <div class="table-responsive">
+<a href="manage_records.php?entity=<?= $entity ?>&operation=add" class="btn btn-success mb-3">Add New <?= ucfirst($entity) ?></a>
+
             <table class="table table-striped table-hover">
                 <thead class="thead-dark">
                     <tr>
